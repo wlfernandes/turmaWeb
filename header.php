@@ -58,7 +58,7 @@
                     </li>
                     <li><a class="icon fa-cog" href="sobre.php"><span>Sobre</span></a></li>
                     <li><a class="icon fa-retweet" href="local.php"><span>Contato</span></a></li>
-                    <li><a class="icon fa-sitemap" href="#"><span>Painel</span></a></li>
+                    <li><a class="icon fa-sitemap" href="panel/index.php"><span>Painel</span></a></li>
                 </ul>
             </nav>
 
