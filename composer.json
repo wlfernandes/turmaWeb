@@ -1,0 +1,16 @@
+{
+  "name": "Quality/turma_03",
+  "description": "Site de conclusão de curso de desenvolvimento web",
+  "authors": [
+    {
+      "name": "Wellington Leonardo",
+      "email": "welingtonleonardo28@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "app\\":"app/classes"
+    }
+  }
+
+}
