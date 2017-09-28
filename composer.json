@@ -9,8 +9,13 @@
   ],
   "autoload": {
     "psr-4": {
-      "app\\":"app/classes"
+      "src\\Classes\\":"app/painel/src/Classes",
+      "src\\Models\\":"app/painel/src/Models",
+      "src\\Interfaces\\":"app/painel/src/Interfaces",
+      "Wlf\\Database\\":"app/painel/Wlf/Database"
     }
+  },
+  "require": {
+    "symfony/var-dumper": "^3.3"
   }
-
 }
