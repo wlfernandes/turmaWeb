@@ -1,8 +1,20 @@
 <?php
 require 'config/config.php'
-
-
 ?>
+<?php
+/*
+    $user = new src\Models\UserModel;
+
+    $attributes = [
+        'nome' => 'Jose',
+        'email'=> 'jose@gmail.com',
+        'usuario'=>'jose',
+        'senha'=>'123456'
+    ];
+    $user->update(2,$attributes);
+*/
+?>
+
 <!doctype html>
 <html lang="pt-br">
 <head>

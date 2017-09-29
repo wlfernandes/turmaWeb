@@ -10,26 +10,32 @@ namespace Wlf\Database;
 
 use src\Interfaces\Imodel;
 use Wlf\Database\Connection;
+use Wlf\Database\AttributesCreate;
+use Wlf\Database\AttibutesUpdate;
+use PDOException;
+
 
 class wlfModel implements Imodel{
 
     private $database;
-    private $attributes;
+
 
     public function __construct(){
         $database = new Connection();
         $this->database = $database->connection();
-        $this->attributes = new Attributes;
+
     }
 
 
     public function create($attributes){
 
-        $fields = $this->attributes->createFields($attributes);
-        $values = $this->attributes->createValues($attributes);
+        $attributes = new AttributesCreate;
+
+        $fields = $attributes->createFields($attributes);
+        $values = $attributes->createValues($attributes);
         $query = "insert into $this->table($fields) values($values)";
         $pdo = $this->database->prepare($query);
-        $bindParameters = $this->attributes->bindCreateParameters($attributes);
+        $bindParameters = $attributes->bindCreateParameters($attributes);
         try{
             $pdo->execute($bindParameters);
             return $this->database->lastInsertId();
@@ -54,6 +60,21 @@ class wlfModel implements Imodel{
         }
     }
     public function update($id, $attributes){
+        $attributesUpdate = new AttibutesUpdate();
+        $fields = $attributesUpdate->updateFields($attributes);
+
+        $query= "update $this->table set $fields WHERE id =:id";
+        $pdo = $this->database->prepare($query);
+        $bindUpdateParameters = $attributesUpdate->bindUpdateParameters($attributes);
+        $bindUpdateParameters['id'] = $id;
+
+        try{
+           $pdo->execute($bindUpdateParameters);
+
+        }catch (\PDOException $e){
+            dump($e->getMessage());
+
+        }
 
     }
     public function delete($name, $value){

@@ -9,7 +9,7 @@
 namespace Wlf\Database;
 
 
-class Attributes{
+class AttributesCreate{
     //create
     public function createFields($attributes){
         return implode(',',array_keys($attributes));
